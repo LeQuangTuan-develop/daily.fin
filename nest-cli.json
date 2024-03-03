@@ -1,0 +1,8 @@
+{
+    "compilerOptions": {
+      "assets": ["**/templates/*"],
+      "watchAssets": true
+    },
+    "entryFile": "main"
+}
+  

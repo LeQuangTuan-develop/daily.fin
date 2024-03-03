@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "allowJs": true,
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "target": "ES2021",
+    "sourceMap": true,
+    "incremental": true,
+    "strictNullChecks": true,
+    "outDir": "./dist",
+    "baseUrl": "./src",
+    "plugins": [
+      {
+        "name": "@nestjs/swagger",
+        "options": {
+          "introspectComments": true
+        }
+      }
+    ]
+  },
+  "exclude": ["node_modules", "dist"]
+}

@@ -1,0 +1,63 @@
+{
+  "name": "gogo.api.vegetable",
+  "version": "1.0.0",
+  "description": "Api vegetable production management service",
+  "author": "",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": "16.20.0"
+  },
+  "scripts": {
+    "prebuild": "npx rimraf dist",
+    "build": "nest build",
+    "prestart": "npx rimraf dist",
+    "prestart:default": "$NVM_DIR/versions/node/v$npm_package_engines_node/bin/yarn",
+    "prestart:windows": "%NVM_HOME%/v%npm_package_engines_node%/yarn",
+    "start:default": "nest start --watch",
+    "start:windows": "nest start --watch",
+    "start": "node ./run-script-os",
+    "cloud": "node dist/main",
+    "cloud:build": "nest build",
+    "lint:js": "eslint --fix --ignore-pattern '!.eslintrc.js'"
+  },
+  "dependencies": {
+    "@nestjs/axios": "^0.0.6",
+    "@nestjs/common": "^8.4.0",
+    "@nestjs/config": "^3.2.0",
+    "@nestjs/core": "^8.4.0",
+    "@nestjs/platform-express": "^8.4.0",
+    "@nestjs/swagger": "^5.2.0",
+    "@nestjs/throttler": "^2.0.1",
+    "@nestjs/typeorm": "^8.0.3",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.13.2",
+    "cookie-parser": "^1.4.6",
+    "date-fns": "^2.28.0",
+    "lodash": "^4.17.21",
+    "morgan": "^1.10.0",
+    "mssql": "^10.0.2",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.5.4",
+    "swagger-ui-express": "^4.3.0",
+    "typeorm": "0.3.17",
+    "xss": "^1.0.11"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^8.2.1",
+    "@nestjs/schematics": "^8.0.7",
+    "@types/cookie-parser": "^1.4.2",
+    "@types/express": "^4.17.13",
+    "@types/lodash": "^4.14.191",
+    "@types/node": "^20.11.21",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.3.2",
+    "ts-loader": "^9.2.7",
+    "ts-node": "^10.6.0",
+    "tsconfig-paths": "^3.12.0",
+    "typescript": "^4.6.2"
+  }
+}
