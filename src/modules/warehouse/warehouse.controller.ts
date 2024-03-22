@@ -1,30 +1,30 @@
 import {Body, Controller, Delete, Get, Param, Post, Put, Query, UsePipes, ValidationPipe} from '@nestjs/common'
-import { SupplierService } from './supplier.service'
-import {CreateSupplierDto, UpdateSupplierDto} from "./supplier.dto";
-import {ISupplier} from "./supplier.interface";
+import { WarehouseService } from './warehouse.service'
+import {CreateWarehouseDto, UpdateWarehouseDto} from "./warehouse.dto";
+import {IWarehouse} from "./warehouse.interface";
 import {isProduction} from "../../utils/shared";
 import {CustomParseIntPipe, CustomValidationPipe} from "../../app.pipe";
 import {Throttle} from "@nestjs/throttler";
 import {ApiTags} from "@nestjs/swagger";
 import {PagingReqDto, TPagingResDto} from "../../app.paging";
 
-@ApiTags('Supplier')
+@ApiTags('Warehouse')
 @Throttle(150, 60)
 @Controller({
-    path: 'supplier',
+    path: 'warehouse',
     version: '1',
 })
-export class SupplierController {
-    constructor(private supplierService: SupplierService) {}
+export class WarehouseController {
+    constructor(private warehouseService: WarehouseService) {}
 
     @UsePipes(isProduction() ? CustomValidationPipe : ValidationPipe)
     @Post()
     async create(
-        @Body() createSupplierDto: CreateSupplierDto
+        @Body() createWarehouseDto: CreateWarehouseDto
     ): Promise<TBaseDto<{ id: number }>> {
         return {
             data: {
-                id: await this.supplierService.create(createSupplierDto)
+                id: await this.warehouseService.create(createWarehouseDto)
             }
         }
     }
@@ -32,24 +32,24 @@ export class SupplierController {
     @Get(':id')
     async findOne(
         @Param('id', CustomParseIntPipe) id: number
-    ): Promise<ISupplier> {
-        return await this.supplierService.findOne(id)
+    ): Promise<IWarehouse> {
+        return await this.warehouseService.findOne(id)
     }
 
     @Get()
     async findAll(
         @Query(ValidationPipe) pagingReqDto: PagingReqDto,
-    ): Promise<TPagingResDto<ISupplier>> {
-        return await this.supplierService.findAll(pagingReqDto)
+    ): Promise<TPagingResDto<IWarehouse>> {
+        return await this.warehouseService.findAll(pagingReqDto)
     }
 
     @UsePipes(isProduction() ? CustomValidationPipe : ValidationPipe)
     @Put(':id')
     async update(
         @Param('id', CustomParseIntPipe) id: number,
-        @Body() updateSupplierDto: UpdateSupplierDto,
+        @Body() updateWarehouseDto: UpdateWarehouseDto,
     ): Promise<object> {
-        await this.supplierService.edit(id, updateSupplierDto)
+        await this.warehouseService.edit(id, updateWarehouseDto)
         return {}
     }
 
@@ -57,7 +57,7 @@ export class SupplierController {
     async remove(
         @Param('id', CustomParseIntPipe) id: number
     ): Promise<object> {
-        await this.supplierService.remove(id);
+        await this.warehouseService.remove(id);
         return {}
     }
 }

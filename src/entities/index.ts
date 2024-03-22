@@ -1,1 +1,5 @@
 export * from './Supplier'
+export * from './Material'
+export * from './Warehouse'
+export * from './Farm'
+export * from './TypeOfTree'
