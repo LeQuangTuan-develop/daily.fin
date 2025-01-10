@@ -1,7 +1,7 @@
 {
-  "name": "gogo.api.vegetable",
+  "name": "gogo.api.test",
   "version": "1.0.0",
-  "description": "Api vegetable production management service",
+  "description": "Api Test",
   "author": "",
   "license": "UNLICENSED",
   "engines": {

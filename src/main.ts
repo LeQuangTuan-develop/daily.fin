@@ -66,7 +66,7 @@ async function bootstrap() {
 
   app.enableVersioning({
     type: VersioningType.URI,
-    prefix: 'api/vitec/v',
+    prefix: 'api/skijan/v',
   })
 
   console.log('run here');
@@ -95,8 +95,8 @@ async function bootstrap() {
 
   if (isLocal) {
     const config = new DocumentBuilder()
-      .setTitle('vitec API')
-      .setDescription('The API for vitec service')
+      .setTitle('Skijan API')
+      .setDescription('The API for Skijan service')
       .setVersion('1.0')
       .build()
     const document = SwaggerModule.createDocument(app, config)

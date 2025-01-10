@@ -16,8 +16,8 @@ export const DATABASE = {
     //   MASTER: {
     //     DB: 'master',
     //   } as TDatabase,
-        VITEC: {
-            DB: 'vitec',
+        SKIJAN: {
+            DB: 'skijan',
         } as TDatabase
     },
   }

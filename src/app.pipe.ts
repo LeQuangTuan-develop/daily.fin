@@ -1,15 +1,14 @@
 import {
     BadRequestException,
     ParseIntPipe,
-    PipeTransform,
     ValidationPipe,
 } from '@nestjs/common'
 import { ValidationPipeOptions } from '@nestjs/common/pipes/validation.pipe'
-import {AppError} from "./app.exception";
+import {AppError} from "./app.exception"
 /**
  * GgjParseIntPipe for validating input param
  */
-export class CustomParseIntPipe extends ParseIntPipe {
+export class GgjParseIntPipe extends ParseIntPipe {
     constructor(message?: string, error?: string) {
         super({
             exceptionFactory: () => {
@@ -22,7 +21,7 @@ export class CustomParseIntPipe extends ParseIntPipe {
     }
 }
 
-export class CustomValidationPipe extends ValidationPipe {
+export class GgjValidationPipe extends ValidationPipe {
     constructor(options?: ValidationPipeOptions) {
         super(
             Object.assign(
@@ -35,14 +34,5 @@ export class CustomValidationPipe extends ValidationPipe {
                 options || {},
             ),
         )
-    }
-}
-
-export class CustomNonEmptyStringPipe implements PipeTransform {
-    transform(value: string): string {
-        if (!value) {
-            throw new BadRequestException('Bad Request', AppError.ECB001)
-        }
-        return value
     }
 }

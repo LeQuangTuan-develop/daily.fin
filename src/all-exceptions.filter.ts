@@ -87,11 +87,11 @@ export class AllExceptionsFilter implements ExceptionFilter {
     )
 
     if (SEND_SLACK_ENV.includes(process.env.ENV || 'local')) {
-    //   slack.sendV2(
-    //     slackPreContent,
-    //     slackMessage,
-    //     process.env.ERROR_SLACK_CHANNEL,
-    //   )
+      // slack.sendV2(
+      //   slackPreContent,
+      //   slackMessage,
+      //   process.env.ERROR_SLACK_CHANNEL,
+      // )
     } else {
       Logger.error(slackMessage)
     }
